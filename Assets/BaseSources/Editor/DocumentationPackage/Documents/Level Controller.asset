@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b9290b04bb5434f8f7031419260349, type: 3}
+  m_Name: Level Controller
+  m_EditorClassIdentifier: 
+  moduleName: Level Controller
+  shortDescription: "Bu template k\u0131saca level i\xE7indeki objelerin transformlar\u0131n\u0131
+    ve yolu kaydeder, istendi\u011Fi zaman y\xFCkler veya override eder. \u0130\xE7erisinde
+    levelda bulunan objelerin transformlar\u0131n\u0131 tutan json dosyalar\u0131
+    bulundurur.\n\n\n"
+  fullDescription: "Genel Bak\u0131\u015F\n\n\xD6ncelikle de\u011Finilmesi gereken
+    konu level tipi se\xE7mektir. E\u011Fer olu\u015Fturaca\u011F\u0131m\u0131z levelda
+    objelerin world positionlar\u0131n\u0131 kaydetmek istiyorsak Position Based
+    Level, spline (yol) \xFCzerindeki konumlar\u0131n\u0131 depolamak istiyorsak
+    ise Spline Based Level se\xE7ene\u011Fini se\xE7meliyiz. \n{0}\n\nPosition Based
+    Level: Position Based Level yapmaya ba\u015Flamadan \xF6nce Level Controller
+    componentimizin yan\u0131nda Basic Level Adapter componentinin var oldu\u011Funa
+    emin olmal\u0131y\u0131z. Level Controller Componentinde bulunan Level Adapter
+    ve Road Manager k\u0131s\u0131mlar\u0131na da bu componentleri s\xFCr\xFCkleyip
+    b\u0131rakmay\u0131 unutmamal\u0131y\u0131z. Sahnede bulunan poollarda kullanmak
+    istedi\u011Fimiz objeleri aktif ettikten sonra objelerin yerlerini transformlar\u0131
+    \xFCzerinden ayarlay\u0131p daha sonra Save Level butonuna t\u0131klamam\u0131z
+    yeterli olacakt\u0131r. Bununla beraber i\xE7erisinde objelerin konumu, say\u0131s\u0131,
+    t\xFCr\xFC ve rotasyonlar\u0131 nulunan bir json dosyas\u0131 otomatik olarak
+    olu\u015Fturulup adland\u0131r\u0131lacakt\u0131r. \n\nSpline Based Level: Spline
+    based level yaparken level controller componentinin yan\u0131na Spline Road Manager
+    ve Spline Level Adapter componentlerini de ba\u015Flamadan \xF6nce eklemeliyiz.
+    Level Controller Componentinde bulunan Level Adapter ve Road Manager k\u0131s\u0131mlar\u0131na
+    da bu componentleri s\xFCr\xFCkleyip b\u0131rakmay\u0131 unutmamal\u0131y\u0131z.\n
+    Yine sahnedeki poollarda bulunan kullanaca\u011F\u0131m\u0131z objeleri  aktif
+    edip bu sefer objelerin \xFCzerine eklenecek olan obstaclelar i\xE7in spline
+    Obstace Model, Collectablelar i\xE7in ise Spline Collectable Model scriptleri
+    \xFCzerinden pozisyonlar\u0131n\u0131 ve offsetlerini ayarlay\u0131p Save Level
+    butonuna bas\u0131yoruz.   B\xF6ylece hem level objelerimiz hem de yolumuz kaydedilmi\u015F
+    oluyor.\n\n{1}\n\nLevel Load/Override Etmek:  Level load etmeden \xF6nce sahnemizi
+    temizlemek i\xE7in Clear Scene butonuna bas\u0131yoruz. Daha sonra Load etmek
+    istedi\u011Fimiz level indexini girerek daha \xF6nce olu\u015Fturmu\u015F oldu\u011Fumuz
+    levellardan birini load edebiliriz. Bu levelda istedi\u011Fimiz de\u011Fi\u015Fiklikleri
+    yapt\u0131ktan sonra ise bu haliyle ayn\u0131 level\u0131n \xFCst\xFCne yazmak
+    istersek Override Level butonuna basmam\u0131z yeterli olacakt\u0131r. B\xF6ylece
+    var olan bir levelda istedi\u011Fimiz de\u011Fi\u015Fiklikleri yap\u0131p kaydetmi\u015F
+    oluyoruz.\n\nDi\u011Fer \xF6zellikler:  Level controller componentinde daha \xF6nce
+    olu\u015Fturup kaydetti\u011Fimiz levellar\u0131 g\xF6rmek i\xE7in Levels sekmesine
+    bakabiliriz. Ayr\u0131ca bu levellar\u0131n listedeki yerlerini de buradan s\xFCr\xFCkleyerek
+    de\u011Fi\u015Ftirebiliyoruz. \n\n{2}\n\nE\u011Fer aktif olarak load etti\u011Fimiz
+    levelin \xF6zelliklerini g\xF6rmek istersek  bu levella ilgili b\xFCt\xFCn bilgileri
+    Active Level sekmesinin alt\u0131nda g\xF6rebiliriz.\n\n{3}"
+  subPages:
+  - {fileID: 11400000, guid: 53866eaa927562649ae6432ddf48e396, type: 2}
+  - {fileID: 11400000, guid: 8304497b0b7ab6b499062cc89aa42373, type: 2}
+  - {fileID: 11400000, guid: 0eca49111281ee340b0c4f4eb4913cd2, type: 2}
+  - {fileID: 11400000, guid: e545ffb14052beb4baf12b843dacae69, type: 2}
+  images:
+  - {fileID: 2800000, guid: c9c1dc7c65fef7043bc3b3b60d86b216, type: 3}
+  - {fileID: 2800000, guid: 61c8fa5b22556fc46be8cf936bc86f6c, type: 3}
+  - {fileID: 2800000, guid: ab37e3bbe5b4b0046ab247938648282f, type: 3}
+  - {fileID: 2800000, guid: 9b3b445a7c860a44392328d4cc89d8f3, type: 3}

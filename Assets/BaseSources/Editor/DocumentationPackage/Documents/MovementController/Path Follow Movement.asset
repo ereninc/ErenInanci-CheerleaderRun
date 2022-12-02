@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b9290b04bb5434f8f7031419260349, type: 3}
+  m_Name: Path Follow Movement
+  m_EditorClassIdentifier: 
+  moduleName: Path Follow Movement
+  shortDescription: "Path kullan\u0131larak yap\u0131lan karakter hareketi.\r"
+  fullDescription: "Path kullan\u0131larak yap\u0131lan karakter hareketidir. Karakteri
+    path'i takip ettirerek hareket ettirir. SplineController objesi \xFCzerinden
+    path'in ayarlar\u0131 yap\u0131labilir.\r\n\r\n{0}\r\n\r\nPathFollowMovementType:
+    sa\u011F-sol swipe'ta karakterin local X eksenindeki yatay hareket t\xFCr\xFCn\xFC
+    belirler. Transform ile mi yoksa Rigidbody ile mi bu hareket sa\u011Flans\u0131n
+    buradan se\xE7ilir.\r\n\t- WithTransform\r\n\t- WithRigidbody\r\n\r\nRigidbodyMovementType:
+    bu ayar sadece \"WithRigidbody\" se\xE7iliyken g\xF6z\xFCk\xFCr. Rigidbody hareketinin
+    nas\u0131l yap\u0131laca\u011F\u0131n\u0131 belirler.\r\n\t1) KimematicOn: rigidbody'de
+    isKinematic=true iken hareket sa\u011Flar.\r\n\t2) KinematicOff: rigidbody'de
+    isKinematic=false iken hareket sa\u011Flar.\r\n\r\nSplineFollower: Karakterin
+    path'i takip etmesi i\xE7in gereken class't\u0131r.\r\n\r\nTouchHelper: KinematifOff
+    ayar\u0131 se\xE7iliyken kullan\u0131c\u0131 inputlar\u0131n\u0131n al\u0131nmas\u0131nda
+    kullan\u0131lan yard\u0131mc\u0131 class't\u0131r.\r\n\r\nShowSplineFollower:
+    SplineFollower komponentini inspector'da g\xF6r\xFCn\xFCr k\u0131lar veya saklar.
+    Karma\u015F\u0131kl\u0131\u011F\u0131 azaltmas\u0131 i\xE7in bu se\xE7enek eklenmi\u015Ftir. "
+  subPages: []
+  images:
+  - {fileID: 2800000, guid: 06225eef013574d4fb5ca0fcad811025, type: 3}

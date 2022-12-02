@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b9290b04bb5434f8f7031419260349, type: 3}
+  m_Name: Tutorial Controller
+  m_EditorClassIdentifier: 
+  moduleName: Tutorial Controller
+  shortDescription: "Tutorial Controller oyun i\xE7erisindeki tutoriallar\u0131n
+    olu\u015Fturulmas\u0131n\u0131, kullan\u0131lmas\u0131n\u0131 ve y\xF6netilmesini
+    sa\u011Flar. Yeni bir tutorial olu\u015Fturmak i\xE7in kolayca Tutorial Controller
+    objesinden istenilen tutorial se\xE7ilip Add Lesson butonuna bas\u0131lmas\u0131
+    yeterlidir.\n\n"
+  fullDescription: "Tutorial Controller objesi oyuncuya oyunun belirli k\u0131s\u0131mlar\u0131n\u0131
+    \xF6\u011Fretmek \xFCzere haz\u0131rlanacak olan tutoriallar\u0131n birka\xE7\u0131n\u0131
+    i\xE7inde bulunduran ve otomatik olarak olu\u015Fturmaya yarayan bir templatedir.
+    \u0130\xE7erisinde bulunan tutorial tipleri swipe, tap hold, click button ve
+    click object tutoriallar\u0131d\u0131r. Yeni bir ders olu\u015Fturmak i\xE7in
+    Lesson Type dropdown men\xFCs\xFCnden ders tipini se\xE7ip Add Lesson butonuna
+    basmak yeterlidir. Clear Lessons butonu ise olu\u015Fturulan bu dersleri silmeye
+    yarar. \n\n{0}\n\nOlu\u015Fturulan yeni ders bir model olarak tutorial controller
+    objesine child olarak eklenir. Bu objeye t\u0131klayarak inspector penceresinden
+    istenilen \xF6zellikler ayarlanabilir.\n\nBu tutorial objeleri istenildi\u011Fi
+    taktirde \xE7a\u011F\u0131r\u0131lmak i\xE7in TutorialController s\u0131n\u0131f\u0131n\u0131n
+    static \xF6rne\u011Fi olan Instance \xF6zelli\u011Fi ile CheckTutorial() metodunu
+    \xE7a\u011F\u0131rarak \xE7al\u0131\u015Ft\u0131r\u0131labilir. Bu metot PlayerDataModel
+    i\xE7erisinde tutulan tutorial index de\u011Fi\u015Fkenini kullanarak s\u0131radaki
+    tutorial'\u0131 oynatmay\u0131 sa\u011Flar. Tutorial index, olu\u015Fturulan
+    tutorial objesinin tutorial listesindeki indexidir. Her tutorial oynat\u0131ld\u0131ktan
+    sonra PlayerDataModel i\xE7erisindeki tutorial indexini bir artt\u0131rarak bir
+    sonraki TutorialController \xE7a\u011F\u0131r\u0131l\u0131\u015F\u0131nda bir
+    sonraki tutorial\u0131n oynat\u0131lmas\u0131n\u0131 sa\u011Flar. \n\nSwipe Lesson\n\nSwipe
+    eventini kullan\u0131c\u0131ya anlatan bir tutorial olu\u015Fturur. Kullan\u0131c\u0131n\u0131n
+    parma\u011F\u0131n\u0131 kayd\u0131rmas\u0131 gereken yollar s\u0131ras\u0131yla
+    swipe directions listesine edit\xF6rden eklenebilir. Tutorial oynat\u0131l\u0131rken
+    g\xF6sterilmesi gereken yard\u0131mc\u0131 yaz\u0131 ise Helper Text isimli TextBox
+    i\xE7erisine yaz\u0131lmal\u0131d\u0131r. E\u011Fer kullan\u0131c\u0131 tutorial\u0131
+    tamamlad\u0131\u011F\u0131nda \xE7al\u0131\u015Fmas\u0131 istenen bir event varsa
+    Swipe Event listesine eklenebilir.\n\n{1}\n\nTap & Hold Lesson\n\nDokunma ve
+    bas\u0131l\u0131 tutma hareketini kullan\u0131c\u0131ya anlatan bir tutorial
+    olu\u015Fturur. Ayn\u0131 \u015Fekilde Ekranda bulunmas\u0131 istenen yard\u0131mc\u0131
+    yaz\u0131 Helper text i\xE7erisine, tutorial tamamlan\u0131nca tetiklenmesi istenen
+    eventleri de Tap And Hold Event i\xE7erisine yerle\u015Ftirebiliriz.\n\n{2}\n\nClick
+    Button Lesson\n\nBas\u0131lmas\u0131 gereken bir butonu g\xF6steren tutorial\u0131
+    olu\u015Fturur. Helper Text \xF6zelli\u011Finin yan\u0131nda bas\u0131lmas\u0131
+    gereken hedef buton bilgisini al\u0131r.\n\n{3}\n\nClick Object Lesson\n\nT\u0131klan\u0131lmas\u0131
+    gereken bir objeyi hedef g\xF6steren bir tutorial olu\u015Fturur. Hedef objenin
+    pozisyonunu, Hepler Text bilgisini, t\u0131klan\u0131lacak alan\u0131n geni\u015Fli\u011Fini
+    (button scale) ve tutorial bitiminde tetiklenecek eventleri edit\xF6rden al\u0131r.
+    \n\n{4}\n"
+  subPages: []
+  images:
+  - {fileID: 2800000, guid: 20f5e6433c5a5d5488d2683906e37176, type: 3}
+  - {fileID: 2800000, guid: b122cad4a349ebf4f84495ae16513096, type: 3}
+  - {fileID: 2800000, guid: 04c2dc88f194dfc4d809011fd8a9cddb, type: 3}
+  - {fileID: 2800000, guid: f1a17ac6252a71b4382a61ede9476812, type: 3}
+  - {fileID: 2800000, guid: cdacffab29711e34ca331eac570de6fd, type: 3}
