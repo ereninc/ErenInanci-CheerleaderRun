@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using CubeGames.Tutorial;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -59,13 +58,10 @@ public class GameController : ControllerBaseModel
             case GameStates.Main:
                 break;
             case GameStates.Game:
-                //AnalyticController.OnLevelStarted(PlayerDataModel.Data.Level);
                 break;
             case GameStates.Win:
-                //AnalyticController.OnLevelCompleted(PlayerDataModel.Data.Level);
                 break;
             case GameStates.Lose:
-                //AnalyticController.OnLevelFailed(PlayerDataModel.Data.Level);
                 break;
             default:
                 break;

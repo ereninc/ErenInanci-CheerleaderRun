@@ -10,13 +10,10 @@ public class InitializeScene : ObjectModel
 
     private void Update()
     {
-        if (AnalyticController.Initialized == true)
+        if (isSceneLoading == false)
         {
-            if (isSceneLoading == false)
-            {
-                isSceneLoading = true;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
+            isSceneLoading = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

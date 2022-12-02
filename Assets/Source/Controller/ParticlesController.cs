@@ -18,14 +18,14 @@ public class ParticlesController : ControllerBaseModel
         instance = this;
     }
 
-    public static void SetParticle(int index, Vector3 pos, VibrationTypes type)
+    public static void SetParticle(int index, Vector3 pos)
     {
-        instance.particlePools[index].SetParticle(pos, type);
+        instance.particlePools[index].SetParticle(pos);
     }
 
-    public static void SetParticle(int index, Vector3 pos, Quaternion rotation, VibrationTypes type)
+    public static void SetParticle(int index, Vector3 pos, Quaternion rotation)
     {
-        instance.particlePools[index].SetParticle(pos, rotation, type);
+        instance.particlePools[index].SetParticle(pos, rotation);
     }
 
 }
