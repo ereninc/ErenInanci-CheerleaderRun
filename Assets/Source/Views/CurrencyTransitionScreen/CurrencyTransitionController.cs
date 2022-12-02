@@ -10,8 +10,9 @@ using System;
 using UnityEditor;
 #endif
 
-public class CurrencyTransitionScreen : ControllerBaseModel
+public class CurrencyTransitionController : ControllerBaseModel
 {
+    public static CurrencyTransitionController Instance;
     [SerializeField] private PoolModel imagePool;
     public Action onParticleCollected;
     private float playDuration = 5f;
@@ -39,6 +40,12 @@ public class CurrencyTransitionScreen : ControllerBaseModel
     public override void Initialize()
     {
         base.Initialize();
+
+        if (Instance != null)
+            Destroy(Instance);
+        else
+            Instance = this;
+
         onParticleCollected += GameController.Instance.Test;
     }
 
@@ -132,16 +139,16 @@ public class CurrencyTransitionScreen : ControllerBaseModel
 }
 
 #if UNITY_EDITOR
-[CustomEditor(typeof(CurrencyTransitionScreen))]
+[CustomEditor(typeof(CurrencyTransitionController))]
 public class CurrencyTransitionEditor : Editor
 {
-    private CurrencyTransitionScreen uiEditorTarget;
+    private CurrencyTransitionController uiEditorTarget;
 
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        uiEditorTarget = target as CurrencyTransitionScreen;
-        if (GUILayout.Button("On Start Animation"))
+        uiEditorTarget = target as CurrencyTransitionController;
+        if (GUILayout.Button("Start Animation"))
         {
             uiEditorTarget.E_TestEmit();
         }
