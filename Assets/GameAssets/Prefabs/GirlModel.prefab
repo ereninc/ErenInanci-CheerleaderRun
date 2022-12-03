@@ -42,9 +42,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2245988479428215490}
   - component: {fileID: 7398142188044145516}
+  - component: {fileID: 6699441943320562138}
+  - component: {fileID: 9165935141341140600}
   m_Layer: 0
   m_Name: GirlModel
-  m_TagString: Untagged
+  m_TagString: GirlModel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,6 +79,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aecf1798b69aadf46bc908b9c72e653f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 2245988478692998704}
+  IsCollected: 0
+--- !u!65 &6699441943320562138
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2245988479428215357}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: 3, z: 0}
+--- !u!54 &9165935141341140600
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2245988479428215357}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &2245988478692998706
 PrefabInstance:
   m_ObjectHideFlags: 0

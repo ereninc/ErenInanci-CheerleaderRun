@@ -10,7 +10,7 @@ public class PlayerController : ControllerBaseModel
     //[SerializeField] FinishRoad FinishRoad;
     [SerializeField] PointerController pointerController;
     [SerializeField] Vector3 movePos;
-    [SerializeField] float sensitve;
+    [SerializeField] float sensitive;
     [SerializeField] float xPosition;
     [SerializeField] float lastXPosition;
     [HideInInspector] public int State;
@@ -57,7 +57,7 @@ public class PlayerController : ControllerBaseModel
     {
         if (isFinished == false)
         {
-            xPosition = lastXPosition + pointerController.DeltaPosition.x * sensitve;
+            xPosition = lastXPosition + pointerController.DeltaPosition.x * sensitive;
             xPosition = Mathf.Clamp(xPosition, -roadLimit, roadLimit);
         }
     }

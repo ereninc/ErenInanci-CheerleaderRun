@@ -46,7 +46,7 @@ public class CurrencyTransitionController : ControllerBaseModel
         else
             Instance = this;
 
-        onParticleCollected += GameController.Instance.Test;
+        onParticleCollected += ScreenController.GetScreen<GameScreen>().UpdateMoneyBar;
     }
 
     public void Emit(Vector3 spawnPos)
