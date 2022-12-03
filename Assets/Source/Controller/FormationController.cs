@@ -2,21 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI.Table;
+using DG.Tweening;
 
 public class FormationController : ControllerBaseModel
 {
     [SerializeField] private List<GirlModel> girlModels;
+    [SerializeField] GirlModel prefab;
 
-    //[SerializeField] GameObject prefab;
     //public int rows = 3;
     //public float rowOffset = -.5f;
     //public float yOffset = -1f;
     //public float xOffset = 1f;
-
-    public void Add(GirlModel model)
+    private void Start()
     {
-        girlModels.Add(model);
+        girlModels= new List<GirlModel>();
+    }
+
+    [EditorButton]
+    public void Add(/*GirlModel model*/)
+    {
+        GirlModel gM = Instantiate(prefab);
+        girlModels.Add(gM);
+        SetFormation();
     }
 
     public void Remove(GirlModel model)
@@ -26,6 +33,8 @@ public class FormationController : ControllerBaseModel
             girlModels.Remove(model);
         }
     }
+
+    [SerializeField] List<Vector3> positions;
 
     [EditorButton]
     public void SetFormation()
@@ -42,10 +51,16 @@ public class FormationController : ControllerBaseModel
         //    }
         //    targetPos = new Vector3((rowOffset * i) - xOffset,targetPos.y + yOffset);
         //}
+
+
+        for (int i = 0; i < girlModels.Count; i++)
+        {
+            girlModels[i].transform.DOMove(positions[i], 0.15f);
+        }
     }
 
     [EditorButton]
-    public void E_GetItems() 
+    public void E_GetItems()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
