@@ -8,14 +8,12 @@ public class FormationController : ControllerBaseModel
 {
     [SerializeField] private List<GirlModel> girlModels;
     [SerializeField] GirlModel prefab;
+    [SerializeField] private float xOffset = 1.5f;
+    [SerializeField] private float yOffset = 3.75f;
 
-    //public int rows = 3;
-    //public float rowOffset = -.5f;
-    //public float yOffset = -1f;
-    //public float xOffset = 1f;
     private void Start()
     {
-        girlModels= new List<GirlModel>();
+        girlModels = new List<GirlModel>();
     }
 
     [EditorButton]
@@ -26,11 +24,20 @@ public class FormationController : ControllerBaseModel
         SetFormation();
     }
 
+    public void Add(GirlModel girlModel)
+    {
+        girlModels.Add(girlModel);
+        SetFormation();
+    }
+
+    [EditorButton]
     public void Remove(GirlModel model)
     {
         if (girlModels.Count > 0)
         {
+            model.SetDeactive();
             girlModels.Remove(model);
+            SetFormation();
         }
     }
 
@@ -39,19 +46,13 @@ public class FormationController : ControllerBaseModel
     [EditorButton]
     public void SetFormation()
     {
-        //Vector3 targetPos = Vector3.left;
-        //for (int i = 0; i <= rows; i++)
+        //Vector3 targetPosition = Vector3.zero;
+        //girlModels[0].transform.position = targetPosition;
+        //for (int i = 1; i < girlModels.Count + 1; i++)
         //{
-        //    for (int j = 0; j < i; j++)
-        //    {
-        //        GameObject gO = Instantiate(prefab);
-        //        gO.transform.SetParent(transform);
-        //        targetPos = new Vector3(targetPos.x + xOffset, targetPos.y, 0);
-        //        gO.transform.position = targetPos;
-        //    }
-        //    targetPos = new Vector3((rowOffset * i) - xOffset,targetPos.y + yOffset);
+        //    targetPosition = new Vector3(xOffset, yOffset, 0);
+        //    girlModels[i].transform.position = targetPosition;
         //}
-
 
         for (int i = 0; i < girlModels.Count; i++)
         {

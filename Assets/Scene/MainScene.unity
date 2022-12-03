@@ -7972,6 +7972,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   girlModels: []
   prefab: {fileID: 7398142188044145516, guid: a92271af84930da4b85743009cfb0ce7, type: 3}
+  xOffset: 1.5
+  yOffset: 3.75
   positions:
   - {x: 0, y: 0, z: 0}
   - {x: 1.5, y: 0, z: 0}
@@ -8052,7 +8054,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684089350}
-  m_LocalRotation: {x: 0.1004436, y: -0.13798596, z: 0.014067619, w: 0.98522747}
+  m_LocalRotation: {x: 0.1004436, y: -0.13798597, z: 0.014067621, w: 0.98522747}
   m_LocalPosition: {x: 10, y: 15, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10023,7 +10025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f78ec9ab8caf7547b3e75a33a524cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForwardSpeed: 5
+  ForwardSpeed: 0
   character: {fileID: 1997381954}
   pointerController:
     PointerDownPosition: {x: 0, y: 0}
@@ -10824,7 +10826,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124040333}
-  m_LocalRotation: {x: 0.1004436, y: -0.13798596, z: 0.014067619, w: 0.98522747}
+  m_LocalRotation: {x: 0.1004436, y: -0.13798597, z: 0.014067621, w: 0.98522747}
   m_LocalPosition: {x: 10, y: 15, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
