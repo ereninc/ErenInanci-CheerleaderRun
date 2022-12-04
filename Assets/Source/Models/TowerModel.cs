@@ -6,8 +6,9 @@ using DG.Tweening;
 
 public class TowerModel : ObjectModel
 {
-    [SerializeField] private TowerSO TowerData;
     [SerializeField] private List<GirlModel> girlModels;
+    [SerializeField] float xOffset = 1.5f;
+    [SerializeField] float yOffset = 3.75f;
 
     public void Add(GirlModel girlModel)
     {
@@ -28,20 +29,23 @@ public class TowerModel : ObjectModel
     [EditorButton]
     public void SetFormation()
     {
-        for (int i = 0; i < girlModels.Count; i++)
+        Vector3 Origin = Vector3.zero;
+        int currentCheerleader = 1;
+        int currentColumnNumber = 1;
+        int cheerleadersInCurrentColumn;
+        while (currentCheerleader <= girlModels.Count)
         {
-            girlModels[i].SetActive();
-            girlModels[i].transform.localPosition = TowerData.TowerPositions[i];
-        }
-    }
-
-    [EditorButton]
-    public void E_GetItems()
-    {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).SetActiveGameObject(false);
-            girlModels.Add(transform.GetChild(i).GetComponent<GirlModel>());
+            cheerleadersInCurrentColumn = 1;
+            Vector3 position = new Vector3(Origin.x + (currentColumnNumber - 1) * xOffset, Origin.y);
+            while (cheerleadersInCurrentColumn <= currentColumnNumber && currentCheerleader <= girlModels.Count)
+            {
+                girlModels[currentCheerleader - 1].transform.SetParent(transform);
+                girlModels[currentCheerleader - 1].transform.localPosition = position;
+                position += new Vector3(-xOffset / 2, yOffset, 0);
+                cheerleadersInCurrentColumn++;
+                currentCheerleader++;
+            }
+            currentColumnNumber++;
         }
     }
 }
