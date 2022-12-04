@@ -9,6 +9,7 @@ public class TowerModel : ObjectModel
     [SerializeField] private List<GirlModel> girlModels;
     [SerializeField] float xOffset = 1.5f;
     [SerializeField] float yOffset = 3.75f;
+    public float CameraXOffset;
 
     public void Add(GirlModel girlModel)
     {
@@ -40,13 +41,16 @@ public class TowerModel : ObjectModel
             while (cheerleadersInCurrentColumn <= currentColumnNumber && currentCheerleader <= girlModels.Count)
             {
                 girlModels[currentCheerleader - 1].transform.SetParent(transform);
-                girlModels[currentCheerleader - 1].transform.localPosition = position;
+                girlModels[currentCheerleader - 1].transform.DOLocalMove(position, 0.15f);
                 position += new Vector3(-xOffset / 2, yOffset, 0);
                 cheerleadersInCurrentColumn++;
                 currentCheerleader++;
             }
             currentColumnNumber++;
+            CameraXOffset = currentColumnNumber * 0.5f; //Tower's bottom-middle position
         }
+
+        transform.DOLocalMoveX(-CameraXOffset, 0.25f); //Set every move
     }
 }
 

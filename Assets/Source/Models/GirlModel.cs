@@ -26,6 +26,7 @@ public class GirlModel : ObjectModel
         IsCollected = true;
         transform.SetParent(towerModel.transform);
         towerModel.Add(this);
+        animator.Play("A_Backflip", 0, 0);
         transform.rotation = Quaternion.identity;
     }
 

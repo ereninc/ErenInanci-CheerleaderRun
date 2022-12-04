@@ -3,6 +3,7 @@
     Loading,
     Main,
     Game,
+    End,
     Win,
     Lose
 }

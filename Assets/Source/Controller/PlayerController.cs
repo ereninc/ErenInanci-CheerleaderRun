@@ -5,23 +5,24 @@ using UnityEngine;
 
 public class PlayerController : ControllerBaseModel
 {
-    public float ForwardSpeed;
-    public Transform character;
-    //[SerializeField] FinishRoad FinishRoad;
-    [SerializeField] PointerController pointerController;
-    [SerializeField] Vector3 movePos;
-    [SerializeField] float sensitive;
-    [SerializeField] float xPosition;
-    [SerializeField] float lastXPosition;
+    [SerializeField] private float forwardSpeed;
     [HideInInspector] public int State;
+    [SerializeField] private PointerController pointerController;
+    [SerializeField] private CharacterModel characterModel;
+    [SerializeField] private Vector3 movePos;
+    [SerializeField] private float sensitive;
     [SerializeField] float roadLimit;
-    float xPos;
-    bool isFinished;
-    float extraForwardSpeed;
+    //[SerializeField] FinishRoad FinishRoad;
+    private float xPosition;
+    private float lastXPosition;
+    private float xPos;
+    private bool isFinished;
+    private float extraForwardSpeed;
 
     public override void Initialize()
     {
         base.Initialize();
+        characterModel.Initialize();
     }
 
     public void OnStartGame()
@@ -70,8 +71,8 @@ public class PlayerController : ControllerBaseModel
     private void movementUpdate()
     {
         xPos = xPosition;
-        character.localPosition = Vector3.MoveTowards(character.localPosition, new Vector3(xPos, 0, 0), 0.5f);
-        movePos = new Vector3(0, 0, transform.position.z + ((1 + extraForwardSpeed) * ForwardSpeed * Time.deltaTime));
+        characterModel.transform.localPosition = Vector3.MoveTowards(characterModel.transform.localPosition, new Vector3(xPos, 0, 0), 0.5f);
+        movePos = new Vector3(0, 0, transform.position.z + ((1 + extraForwardSpeed) * forwardSpeed * Time.deltaTime));
         transform.position = movePos;
     }
 }
