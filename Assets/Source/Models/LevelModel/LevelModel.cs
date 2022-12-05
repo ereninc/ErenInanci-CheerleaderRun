@@ -5,5 +5,5 @@ using UnityEngine;
 [System.Serializable]
 public class LevelModel 
 {
-
+    public int StartGirlCount;
 }

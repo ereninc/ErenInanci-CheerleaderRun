@@ -6,24 +6,32 @@ using DG.Tweening;
 
 public class TowerModel : ObjectModel
 {
-    [SerializeField] private List<GirlModel> girlModels;
+    [SerializeField] private TowerFloorController floorController;
     [SerializeField] float xOffset = 1.5f;
     [SerializeField] float yOffset = 3.75f;
-    public float CameraXOffset;
+    private float towerXPosition;
+    public List<GirlModel> GirlModels;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        floorController.Initialize();
+    }
 
     public void Add(GirlModel girlModel)
     {
-        girlModels.Add(girlModel);
+        GirlModels.Add(girlModel);
         SetFormation();
     }
 
     public void Remove(GirlModel model)
     {
-        if (girlModels.Count > 0)
+        if (GirlModels.Count > 0)
         {
-            model.SetDeactive();
-            girlModels.Remove(model);
-            SetFormation();
+            //model.SetDeactive();
+            ResetTower();
+            GirlModels.Remove(model);
+            Invoke(nameof(SetFormation), 0.35f);
         }
     }
 
@@ -34,23 +42,30 @@ public class TowerModel : ObjectModel
         int currentCheerleader = 1;
         int currentColumnNumber = 1;
         int cheerleadersInCurrentColumn;
-        while (currentCheerleader <= girlModels.Count)
+        while (currentCheerleader <= GirlModels.Count)
         {
             cheerleadersInCurrentColumn = 1;
             Vector3 position = new Vector3(Origin.x + (currentColumnNumber - 1) * xOffset, Origin.y);
-            while (cheerleadersInCurrentColumn <= currentColumnNumber && currentCheerleader <= girlModels.Count)
+            while (cheerleadersInCurrentColumn <= currentColumnNumber && currentCheerleader <= GirlModels.Count)
             {
-                girlModels[currentCheerleader - 1].transform.SetParent(transform);
-                girlModels[currentCheerleader - 1].transform.DOLocalMove(position, 0.15f);
+                GirlModel girl = GirlModels[currentCheerleader - 1];
+                girl.transform.DOLocalMove(position, 0.25f);
+                int floor = girl.OnTowerPlacement(position.y);
+                floorController.Place(floor, girl);
                 position += new Vector3(-xOffset / 2, yOffset, 0);
                 cheerleadersInCurrentColumn++;
                 currentCheerleader++;
             }
             currentColumnNumber++;
-            CameraXOffset = currentColumnNumber * 0.5f; //Tower's bottom-middle position
+            towerXPosition = currentColumnNumber * 0.5f; //Tower's bottom-middle position
         }
 
-        transform.DOLocalMoveX(-CameraXOffset, 0.25f); //Set every move
+        transform.DOLocalMoveX(-towerXPosition, 0.25f); //Set every move
+    }
+
+    public void ResetTower() 
+    {
+        floorController.ResetFloors();
     }
 }
 

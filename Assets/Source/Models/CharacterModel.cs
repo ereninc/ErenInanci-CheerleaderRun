@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class CharacterModel : ObjectModel
 {
+    [SerializeField] private FinishController finishController;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -13,8 +15,8 @@ public class CharacterModel : ObjectModel
 
     public void OnLevelFinished()
     {
-        GameController.ChangeState(GameStates.End);
         transform.DOLocalMoveX(0, 0.15f);
+        finishController.OnFinish();
     }
 
     private void OnTriggerEnter(Collider other)

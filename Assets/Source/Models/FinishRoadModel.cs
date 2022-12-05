@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class FinishRoadModel : ObjectModel
 {
-    public List<Transform> ScorePlatformPositions;
+    [SerializeField] private List<Transform> scorePlatformPositions;
+
+    public Transform GetPoint(int index)
+    {
+        return scorePlatformPositions[index];
+    }
 }

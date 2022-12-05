@@ -6,7 +6,18 @@ using Cinemachine;
 public class CameraController : ControllerBaseModel
 {
     [SerializeField] CinemachineVirtualCamera[] virtualCameras;
+    public static CameraController Instance;
     public CinemachineVirtualCamera ActiveCamera;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        if (Instance != null)
+        {
+            Destroy(Instance);
+        }
+        Instance = this;
+    }
 
     public void ChangeCamera(int index)
     {
@@ -30,6 +41,4 @@ public class CameraController : ControllerBaseModel
         }
         base.Reset();
     }
-
-
 }
