@@ -124,11 +124,11 @@ Material:
     - Color_3a4e40911dce48de8cef5b9da0d2d2a7: {r: 0.49808654, g: 0.76510656, b: 0.8584906, a: 1}
     - Color_ed4c3f920a5e43e2bc0b5ac95a193294: {r: 0.031372547, g: 0.5143801, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BottomColor: {r: 0, g: 0.43137255, b: 1, a: 1}
+    - _BottomColor: {r: 0, g: 0.43137264, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TopColor: {r: 0, g: 0.6784314, b: 1, a: 1}
+    - _TopColor: {r: 0.759434, g: 0.9234562, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &8588043498361474098
 MonoBehaviour:

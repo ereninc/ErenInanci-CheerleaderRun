@@ -18,11 +18,11 @@ public class GirlModel : ObjectModel
         girlVisualModel.OnCollect();
     }
 
-    public void OnSpawn(Vector3 position, Quaternion rotation, int animationIndex)
+    public void OnLevelSpawn(Transform towerParent)
     {
         SetActive();
-        transform.position = position;
-        transform.rotation = rotation;
+        transform.SetParent(towerParent);
+        IsCollected = true;
     }
 
     public void OnCollected()
@@ -58,6 +58,11 @@ public class GirlModel : ObjectModel
         return heightInTower;
     }
 
+    public int GetHeight()
+    {
+        return heightInTower;
+    }
+
     private void onHitObstacle()
     {
         towerModel.Remove(this);
@@ -88,16 +93,13 @@ public class GirlModel : ObjectModel
                 GirlModel collectedGirl = other.GetComponent<GirlModel>();
                 collectedGirl.OnCollected();
                 break;
-
             case "Diamond":
                 DiamondModel diamond = other.GetComponent<DiamondModel>();
                 diamond.OnCollect();
                 break;
-
             case "Obstacle":
                 onHitObstacle();
                 break;
-
             default:
                 break;
         }

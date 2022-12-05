@@ -28,8 +28,6 @@ public class TowerModel : ObjectModel
     {
         if (GirlModels.Count > 0)
         {
-            //model.SetDeactive();
-            ResetTower();
             GirlModels.Remove(model);
             Invoke(nameof(SetFormation), 0.35f);
         }
@@ -39,33 +37,26 @@ public class TowerModel : ObjectModel
     public void SetFormation()
     {
         Vector3 Origin = Vector3.zero;
-        int currentCheerleader = 1;
+        int currentGirl = 1;
         int currentColumnNumber = 1;
-        int cheerleadersInCurrentColumn;
-        while (currentCheerleader <= GirlModels.Count)
+        int girlsInCurrentColumn;
+        while (currentGirl <= GirlModels.Count)
         {
-            cheerleadersInCurrentColumn = 1;
+            girlsInCurrentColumn = 1;
             Vector3 position = new Vector3(Origin.x + (currentColumnNumber - 1) * xOffset, Origin.y);
-            while (cheerleadersInCurrentColumn <= currentColumnNumber && currentCheerleader <= GirlModels.Count)
+            while (girlsInCurrentColumn <= currentColumnNumber && currentGirl <= GirlModels.Count)
             {
-                GirlModel girl = GirlModels[currentCheerleader - 1];
+                GirlModel girl = GirlModels[currentGirl - 1];
                 girl.transform.DOLocalMove(position, 0.25f);
-                int floor = girl.OnTowerPlacement(position.y);
-                floorController.Place(floor, girl);
+                girl.OnTowerPlacement(position.y);
                 position += new Vector3(-xOffset / 2, yOffset, 0);
-                cheerleadersInCurrentColumn++;
-                currentCheerleader++;
+                girlsInCurrentColumn++;
+                currentGirl++;
             }
             currentColumnNumber++;
             towerXPosition = currentColumnNumber * 0.5f; //Tower's bottom-middle position
         }
-
-        transform.DOLocalMoveX(-towerXPosition, 0.25f); //Set every move
-    }
-
-    public void ResetTower() 
-    {
-        floorController.ResetFloors();
+        transform.DOLocalMoveX(-towerXPosition, 0.25f); //Set formation change
     }
 }
 
