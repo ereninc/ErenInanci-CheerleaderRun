@@ -16,7 +16,8 @@ public class DiamondModel : CollectableBaseModel
     public override void OnCollect()
     {
         IncomeController.Instance.IncreaseIncome(Amount);
-        CurrencyTransitionController.Instance.EmitParticlesInTime(1, .15f, Camera.main.WorldToScreenPoint(transform.position));
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        CurrencyTransitionController.Instance.EmitParticlesInTime(1, .15f, screenPos);
         base.OnCollect();
     }
 

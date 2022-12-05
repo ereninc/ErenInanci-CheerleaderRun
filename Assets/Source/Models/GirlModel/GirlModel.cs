@@ -91,7 +91,7 @@ public class GirlModel : ObjectModel
         {
             case "GirlModel":
                 GirlModel collectedGirl = other.GetComponent<GirlModel>();
-                collectedGirl.OnCollected();
+                if (!collectedGirl.IsCollected) collectedGirl.OnCollected();
                 break;
             case "Diamond":
                 DiamondModel diamond = other.GetComponent<DiamondModel>();

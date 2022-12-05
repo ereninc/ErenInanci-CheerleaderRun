@@ -12,7 +12,6 @@ public class PlayerController : ControllerBaseModel
     [SerializeField] private Vector3 movePos;
     [SerializeField] private float sensitive;
     [SerializeField] float roadLimit;
-    //[SerializeField] FinishRoad FinishRoad;
     private float xPosition;
     private float lastXPosition;
     private float xPos;
