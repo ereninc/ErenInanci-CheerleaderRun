@@ -104,4 +104,13 @@ public class GirlModel : ObjectModel
                 break;
         }
     }
+
+    public GirlDataModel GetDataModel()
+    {
+        GirlDataModel dataModel = new GirlDataModel();
+        dataModel.Position = transform.position;
+        dataModel.Rotation = transform.rotation;
+
+        return dataModel;
+    }
 }

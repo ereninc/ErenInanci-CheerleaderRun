@@ -19,4 +19,12 @@ public class DiamondModel : CollectableBaseModel
         CurrencyTransitionController.Instance.EmitParticlesInTime(1, .15f, Camera.main.WorldToScreenPoint(transform.position));
         base.OnCollect();
     }
+
+    public CollectableDataModel GetDataModel()
+    {
+        CollectableDataModel dataModel = new CollectableDataModel();
+        dataModel.Position = transform.position;
+
+        return dataModel;
+    }
 }

@@ -8,6 +8,7 @@ public class TowerFloorController : ControllerBaseModel
     public int MaxFloorCount = 6;
     public TowerModel TowerModel;
     public FinishRoadModel FinishRoadModel;
+    private int index = 0;
 
 
     public override void Initialize()
@@ -25,7 +26,6 @@ public class TowerFloorController : ControllerBaseModel
         List<GirlModel> floorGirls = new List<GirlModel>();
         for (int i = MaxFloorCount; i > 0; i--)
         {
-            Debug.Log(i);
             for (int j = 0; j < TowerModel.GirlModels.Count; j++)
             {
                 GirlModel girl = TowerModel.GirlModels[j];
@@ -39,8 +39,12 @@ public class TowerFloorController : ControllerBaseModel
                 for (int k = 0; k < floorGirls.Count; k++)
                 {
                     GirlModel girl = floorGirls[k];
-                    girl.OnScorePlatformPlacement(FinishRoadModel.GetPoint(FinishRoadModel.GetPointCount() - i));
+                    girl.OnScorePlatformPlacement(FinishRoadModel.GetPoint(FinishRoadModel.GetPointCount() - i + index));
                 }
+            }
+            else
+            {
+                index--;
             }
             floorGirls.Clear();
             yield return new WaitForSeconds(0.25f);

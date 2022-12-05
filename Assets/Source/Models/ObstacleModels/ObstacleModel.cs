@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleModel : MonoBehaviour
+public class ObstacleModel : ObjectModel
 {
-    // Start is called before the first frame update
-    void Start()
+    public ObstacleDataModel GetDataModel()
     {
-        
-    }
+        ObstacleDataModel dataModel = new ObstacleDataModel();
+        dataModel.Position = transform.position;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return dataModel;
     }
 }
